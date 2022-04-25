@@ -1,6 +1,8 @@
 package frce;
 
+
 {$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
 {$ALIGN 8}
 {$ASSERTIONS ON}
 {$BOOLEVAL OFF}
@@ -11,23 +13,25 @@ package frce;
 {$LOCALSYMBOLS ON}
 {$LONGSTRINGS ON}
 {$OPENSTRINGS ON}
-{$OPTIMIZATION ON}
+{$OPTIMIZATION OFF}
 {$OVERFLOWCHECKS OFF}
 {$RANGECHECKS OFF}
 {$REFERENCEINFO OFF}
 {$SAFEDIVIDE OFF}
-{$STACKFRAMES OFF}
+{$STACKFRAMES ON}
 {$TYPEDADDRESS OFF}
 {$VARSTRINGCHECKS ON}
 {$WRITEABLECONST OFF}
 {$MINENUMSIZE 1}
 {$IMAGEBASE $400000}
-{$DESCRIPTION 'Fortes Report Comunity Edition'}
-{$IMPLICITBUILD OFF}
+{$DEFINE DEBUG}
 {$DEFINE RELEASE}
 {$DEFINE DELPHI}
 {$DEFINE VCL}
+{$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'Fortes Report Comunity Edition'}
 {$RUNONLY}
+{$IMPLICITBUILD OFF}
 
 requires
   rtl,
@@ -36,14 +40,11 @@ requires
   vclactnband,
   vclx,
   dbrtl,
-  {$IFDEF VER150} vcljpg,{$ELSE}    // D7
-   {$IFDEF VER180} vcljpg, {$ELSE}  // D2007
-    vclimg,
-   {$ENDIF}
-  {$ENDIF}
+  vclimg,
   vcldb;
 
 contains
+  RLReg in '..\Source\RLReg.pas',
   RLReport in '..\Source\RLReport.pas',
   RLUtils in '..\Source\RLUtils.pas',
   RLPreviewForm in '..\Source\RLPreviewForm.pas',
@@ -73,7 +74,8 @@ contains
   RLPkZip in '..\Source\RLPkZip.pas',
   RLXLSFilter in '..\Source\RLXLSFilter.pas',
   RLXLSXFileFormat in '..\Source\RLXLSXFileFormat.pas',
-  RLXLSXFilter in '..\Source\RLXLSXFilter.pas';
+  RLXLSXFilter in '..\Source\RLXLSXFilter.pas',
+  RLDesign in '..\Source\RLDesign.pas';
 
 end.
 

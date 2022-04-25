@@ -53,19 +53,18 @@ interface
 uses
   Classes, SysUtils,
   {$IfDef FPC}
-   PropEdits, ComponentEditors, LCLType, LResources,
+  PropEdits, ComponentEditors, LCLType, LResources,
   {$Else}
    {$IfDef DELPHI5}
-    DsgnIntF,
+  DsgnIntF,
    {$Else}
-    DesignIntF,
+  DesignIntf,
    {$EndIf}
   {$EndIf}
   {$IfDef DELPHI2007_UP}
-   ToolsApi, Windows, Graphics,
+  ToolsApi, Windows, Graphics,
   {$EndIf}
-  RLDesign, RLReport,
-  RLDraftFilter, RLPDFFilter, RLHTMLFilter, RLRichFilter,
+  RLDesign, RLReport, RLDraftFilter, RLPDFFilter, RLHTMLFilter, RLRichFilter,
   RLParser, RLPreview, RLMetaFile, RLBarcode, RLRichText, RLPreviewForm,
   RLXLSFilter, RLXLSXFilter;
 
@@ -83,15 +82,15 @@ var
   AboutBoxServices: IOTAAboutBoxServices = nil;
   AboutBoxIndex: Integer = 0;
 
+
 procedure RegisterAboutBox;
 var
   ProductImage: HBITMAP;
 begin
-  Supports(BorlandIDEServices,IOTAAboutBoxServices, AboutBoxServices);
+  Supports(BorlandIDEServices, IOTAAboutBoxServices, AboutBoxServices);
   Assert(Assigned(AboutBoxServices), '');
   ProductImage := LoadBitmap(FindResourceHInstance(HInstance), 'FRCE');
-  AboutBoxIndex := AboutBoxServices.AddPluginInfo(cRLSobreTitulo , cRLSobreDescricao,
-    ProductImage, False, cRLSobreLicencaStatus);
+  AboutBoxIndex := AboutBoxServices.AddPluginInfo(cRLSobreTitulo, cRLSobreDescricao, ProductImage, False, cRLSobreLicencaStatus);
 end;
 
 procedure UnregisterAboutBox;
@@ -110,7 +109,7 @@ var
 begin
   bmp := TBitmap.Create;
   bmp.LoadFromResourceName(HInstance, 'FRCE');
-  SplashScreenServices.AddPluginBitmap(cRLSobreDialogoTitulo,bmp.Handle,false,cRLSobreLicencaStatus,'');
+  SplashScreenServices.AddPluginBitmap(cRLSobreDialogoTitulo, bmp.Handle, false, cRLSobreLicencaStatus, '');
   bmp.Free;
 end;
 {$ENDIF}
@@ -121,35 +120,7 @@ begin
   ForceDemandLoadState(dlDisable);
   {$ENDIF}
   // componentes
-  RegisterComponents('Fortes Report CE', [TRLReport, 
-                                      TRLBand, 
-                                      TRLDetailGrid, 
-                                      TRLGroup, 
-                                      TRLSubDetail, 
-                                      TRLLabel, 
-                                      TRLAngleLabel, 
-                                      TRLDBText, 
-                                      TRLMemo, 
-                                      TRLDBMemo, 
-                                      TRLRichText, 
-                                      TRLDBRichText, 
-                                      TRLImage, 
-                                      TRLDBImage, 
-                                      TRLSystemInfo, 
-                                      TRLDraw, 
-                                      TRLPanel, 
-                                      TRLDBResult, 
-                                      TRLBarcode, 
-                                      TRLDBBarcode, 
-                                      TRLPreview, 
-                                      TRLExpressionParser,
-                                      TRLDraftFilter,
-                                      TRLRichFilter, 
-                                      TRLHTMLFilter, 
-                                      TRLPDFFilter, 
-                                      TRLXLSFilter, 
-                                      TRLXLSXFilter, 
-                                      TRLPreviewSetup]);
+  RegisterComponents('Fortes Report CE', [TRLReport, TRLBand, TRLDetailGrid, TRLGroup, TRLSubDetail, TRLLabel, TRLAngleLabel, TRLDBText, TRLMemo, TRLDBMemo, TRLRichText, TRLDBRichText, TRLImage, TRLDBImage, TRLSystemInfo, TRLDraw, TRLPanel, TRLDBResult, TRLBarcode, TRLDBBarcode, TRLPreview, TRLExpressionParser, TRLDraftFilter, TRLRichFilter, TRLHTMLFilter, TRLPDFFilter, TRLXLSFilter, TRLXLSXFilter, TRLPreviewSetup]);
   // editores de componentes
   RegisterComponentEditor(TRLReport, TRLReportDesigner);
   // editores de propriedades
@@ -161,6 +132,7 @@ end;
 initialization
   AddSplash;
   RegisterAboutBox;
+
 
 finalization
   UnregisterAboutBox;

@@ -1,0 +1,75 @@
+package frceMTN;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl,
+  xmlrtl,
+  vclactnband,
+  vclx,
+  dbrtl,
+  vclimg,
+  vcldb,
+  designide;
+
+contains
+  RLAbout in '..\Source\RLAbout.pas',
+  RLBarcode in '..\Source\RLBarcode.pas',
+  RlCompilerConsts in '..\Source\RlCompilerConsts.pas',
+  RLComponentFactory in '..\Source\RLComponentFactory.pas',
+  RLConsts in '..\Source\RLConsts.pas',
+  RLCRC32 in '..\Source\RLCRC32.pas',
+  RLDesign in '..\Source\RLDesign.pas',
+  RLDraftFilter in '..\Source\RLDraftFilter.pas',
+  RLFeedBack in '..\Source\RLFeedBack.pas',
+  RLFilters in '..\Source\RLFilters.pas',
+  RLFindDialog in '..\Source\RLFindDialog.pas',
+  RLHTMLFilter in '..\Source\RLHTMLFilter.pas',
+  RLMetaFile in '..\Source\RLMetaFile.pas',
+  RLMetaVCL in '..\Source\RLMetaVCL.pas',
+  RLParser in '..\Source\RLParser.pas',
+  RLPDFFilter in '..\Source\RLPDFFilter.pas',
+  RLPkZip in '..\Source\RLPkZip.pas',
+  RLPreview in '..\Source\RLPreview.pas',
+  RLPreviewForm in '..\Source\RLPreviewForm.pas',
+  RLPrintDialog in '..\Source\RLPrintDialog.pas',
+  RLPrinters in '..\Source\RLPrinters.pas',
+  RLReg in '..\Source\RLReg.pas',
+  RLReport in '..\Source\RLReport.pas',
+  RLRichFilter in '..\Source\RLRichFilter.pas',
+  RLRichText in '..\Source\RLRichText.pas',
+  RLSaveDialog in '..\Source\RLSaveDialog.pas',
+  RLSpoolFilter in '..\Source\RLSpoolFilter.pas',
+  RLTypes in '..\Source\RLTypes.pas',
+  RLUtils in '..\Source\RLUtils.pas',
+  RLXLSFilter in '..\Source\RLXLSFilter.pas',
+  RLXLSXFileFormat in '..\Source\RLXLSXFileFormat.pas',
+  RLXLSXFilter in '..\Source\RLXLSXFilter.pas';
+
+end.
